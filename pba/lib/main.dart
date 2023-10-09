@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pba/backroundVideo.dart';
+import 'package:pba/login.dart';
 import 'package:pba/splashScreen.dart';
 
 void main() {
@@ -15,11 +16,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.redAccent),
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: Color.fromARGB(255, 230, 53, 56),
+              secondary: Color.fromARGB(255, 35, 73, 132)),
           useMaterial3: true,
         ),
+        debugShowCheckedModeBanner: false,
         routes: {
-          '/': (context) => SplashScreen(),
+          '/': (context) => LoginPage(),
         });
   }
 }
