@@ -2,7 +2,7 @@ import 'dart:async';
 
 
 import 'package:flutter/material.dart';
-import 'package:pba/input.dart';
+import 'package:pba/widgets/input.dart';
 
 
 class ForgotPassword extends StatefulWidget {

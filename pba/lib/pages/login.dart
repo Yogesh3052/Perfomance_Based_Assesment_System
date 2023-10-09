@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pba/forgotPassword.dart';
-import 'package:pba/input.dart';
+import 'package:pba/pages/forgotPassword.dart';
+import 'package:pba/widgets/input.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
