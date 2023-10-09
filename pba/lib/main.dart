@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pba/backroundVideo.dart';
-import 'package:pba/login.dart';
-import 'package:pba/splashScreen.dart';
+import 'package:pba/pages/backroundVideo.dart';
+import 'package:pba/pages/login.dart';
+import 'package:pba/pages/splashScreen.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:pba/backroundVideo.dart';
+import 'package:pba/pages/backroundVideo.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:pba/login.dart';
-import 'package:pba/splashScreen.dart';
+import 'package:pba/pages/login.dart';
+import 'package:pba/pages/splashScreen.dart';
 
 void main() {
   runApp(const MyApp());
