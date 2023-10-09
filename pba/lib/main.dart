@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pba/Splash_screen.dart';
 import 'package:pba/dept.dart';
-import 'package:pba/login.dart';
-import 'package:pba/splashScreen.dart';
+
 
 void main() {
   runApp(const MyApp());
