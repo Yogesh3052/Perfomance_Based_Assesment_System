@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pba/backroundVideo.dart';
+import 'package:pba/Splash_screen.dart';
+import 'package:pba/dept.dart';
 import 'package:pba/login.dart';
 import 'package:pba/splashScreen.dart';
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         routes: {
-          '/': (context) => LoginPage(),
+          '/': (context) =>Departments(),
         });
   }
 }
