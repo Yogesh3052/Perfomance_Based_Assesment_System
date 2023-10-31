@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pba/Splash_screen.dart';
-import 'package:pba/dept.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pba/pages/application.dart';
 import 'package:pba/pages/homePage.dart';
