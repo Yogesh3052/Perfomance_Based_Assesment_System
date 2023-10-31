@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
+  final String role;
+  const MyHomePage({super.key, required this.role});
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
   List<Widget> imageList = [
     Image.asset('asset/images/aissms-ioit-logo (1).png'),
     Image.asset('asset/images/Logo.jpg'),
 
     // Add more images or widgets as needed.
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

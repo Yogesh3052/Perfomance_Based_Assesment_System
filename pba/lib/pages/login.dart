@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pba/backend/users.dart';
 import 'package:pba/pages/forgotPassword.dart';
+import 'package:pba/pages/homePage.dart';
 import 'package:pba/widgets/input.dart';
+import 'package:pba/widgets/popUp.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -18,9 +21,28 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
+  void login(String uid, String pass) {
+    String pwd =
+        user.userData.containsKey(uid) ? user.userData[uid]![0] : "None";
+    String role = pwd == pass ? user.userData[uid]![1] : "None";
+    if (role != "None") {
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+            builder: (context) => role == "principal"
+                ? MyHomePage(
+                    role: '$role',
+                  )
+                : MyHomePage(
+                    role: '$role',
+                  )), // second one for hod and faculty
+        (Route<dynamic> route) => false, // Remove all previous routes
+      );
+    }
+  }
+
   final TextEditingController _userIdController = TextEditingController();
-  final TextEditingController _passwordController =
-      TextEditingController(); // User has to input GRN
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -158,6 +180,14 @@ class _LoginPageState extends State<LoginPage> {
                             child: ElevatedButton(
                               onPressed: () {
                                 print("Login button pressed");
+                                if (user.userData.containsKey(
+                                        _userIdController.text.trim()) ==
+                                    true) {
+                                  login(_userIdController.text.trim(),
+                                      _passwordController.text.trim());
+                                } else {
+                                  popups.showMessage("Incorrect Credentials");
+                                }
                               },
                               style: ElevatedButton.styleFrom(
                                 minimumSize: const Size(150, 40),

@@ -17,6 +17,7 @@ class Inputfield extends StatefulWidget {
     this.obscureText = false,
     this.validator,
     this.prefixIcon,
+    
   }) : super(key: key);
 
   String? defaultValidator(String? value) {

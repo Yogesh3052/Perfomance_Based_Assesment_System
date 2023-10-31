@@ -3,6 +3,7 @@ import 'package:pba/Splash_screen.dart';
 import 'package:pba/dept.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:pba/pages/homePage.dart';
+import 'package:pba/pages/login.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -13,6 +14,8 @@ void main() async {
   runApp(const MyApp());
 }
 
+GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -20,6 +23,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        navigatorKey: navigatorKey,
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
@@ -27,9 +32,8 @@ class MyApp extends StatelessWidget {
               secondary: Color.fromARGB(255, 35, 73, 132)),
           useMaterial3: true,
         ),
-        debugShowCheckedModeBanner: false,
         routes: {
-          '/': (context) => MyHomePage(),
+          '/': (context) => LoginPage(),
         });
   }
 }
