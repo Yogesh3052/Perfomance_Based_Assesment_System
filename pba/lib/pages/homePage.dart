@@ -46,14 +46,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.person),
+            leading: const Icon(Icons.note_add_outlined),
             title: const Text('Create Applications'),
             onTap: () {
               // Implement the action for the Profile Page button here
             },
           ),
           ListTile(
-            leading: const Icon(Icons.person),
+            leading: const Icon(Icons.view_agenda_outlined),
             title: const Text('View Applications'),
             onTap: () {
               // Implement the action for the Profile Page button here
@@ -130,21 +130,36 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
 
           Container(
-            height: 220,
+            height: 260,
             width: MediaQuery.of(context).size.width * 0.97,
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 35, 73, 132),
                 borderRadius: BorderRadius.circular(25.0)),
-            child: CarouselSlider(
-              options: CarouselOptions(
-                autoPlay: true,
-                aspectRatio: 16 / 9,
-                enlargeCenterPage: true,
-                enableInfiniteScroll: true,
-                initialPage: 0,
-                autoPlayInterval: const Duration(seconds: 2),
-              ),
-              items: imageList,
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 15,
+                ),
+                const Text(
+                  'AISSMS IOIT, PUNE',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                CarouselSlider(
+                  options: CarouselOptions(
+                    autoPlay: true,
+                    aspectRatio: 16 / 9,
+                    enlargeCenterPage: true,
+                    enableInfiniteScroll: true,
+                    initialPage: 0,
+                    autoPlayInterval: const Duration(seconds: 2),
+                  ),
+                  items: imageList,
+                ),
+              ],
             ),
           ),
           Expanded(
