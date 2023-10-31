@@ -32,10 +32,40 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // title: Text('Home'),
-        leading: Icon(Icons.menu),
+        title: Text('Home'),
         backgroundColor: Color.fromARGB(255, 230, 53, 56),
       ),
+      drawer: Drawer(
+          child: Column(
+        children: [
+          UserAccountsDrawerHeader(
+            accountName: Text("Navale Girish"),
+            accountEmail: const Text('Assistant Professor,\nAISSMS IOIT, PUNE'),
+            currentAccountPicture: CircleAvatar(
+              backgroundImage: AssetImage('asset/images/Navale.jpg'),
+            ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.person),
+            title: const Text('Create Applications'),
+            onTap: () {
+              // Implement the action for the Profile Page button here
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.person),
+            title: const Text('View Applications'),
+            onTap: () {
+              // Implement the action for the Profile Page button here
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.logout),
+            title: const Text('Log Out'),
+            onTap: () {},
+          ),
+        ],
+      )),
       body: Column(
         children: <Widget>[
           // Container(
@@ -43,41 +73,65 @@ class _MyHomePageState extends State<MyHomePage> {
           //   child:
           //       Image.asset('asset/images/hlogo.png'), // Replace with your logo
           // ),
-          Container(
-            alignment: Alignment.centerLeft,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 10.0),
-                CircleAvatar(
-                  radius: 30.0,
-                  backgroundColor: Colors.white,
-                  backgroundImage: AssetImage(
-                    'asset/images/symbol0.jpg',
+          SizedBox(
+            height: 20,
+          ),
+          Center(
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.97,
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
+              decoration: BoxDecoration(
+                  image: const DecorationImage(
+                    image: AssetImage(
+                        'asset/images/bluebackground.jpg'), // Replace 'background_image.jpg' with the actual image path in your assets.
+                    fit: BoxFit
+                        .cover, // Adjust the fit type according to your requirement.
                   ),
-                ),
-                SizedBox(height: 10.0),
-                Column(
-                  children: [
-                    Text('Navle',
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 35, 73, 132),
-                        )),
-                    Text('${widget.role}',
-                        style: TextStyle(
-                          fontSize: 10.0,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 230, 53, 56),
-                        )),
-                  ],
-                ),
-              ],
+                  borderRadius: BorderRadius.circular(10)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    radius: 50,
+                    backgroundImage: AssetImage('asset/images/Navale.jpg'),
+                  ),
+                  const SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Navale Girish',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          'Assistant Professor,\nAISSMS IOIT, PUNE',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
+
+          SizedBox(
+            height: 15,
+          ),
+
           Container(
-            padding: const EdgeInsets.all(10),
+            height: 220,
+            width: MediaQuery.of(context).size.width * 0.97,
             decoration: BoxDecoration(
                 color: Color.fromARGB(255, 35, 73, 132),
                 borderRadius: BorderRadius.circular(25.0)),

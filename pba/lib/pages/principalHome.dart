@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/services.dart';
+import 'package:pba/pages/department.dart';
 
 class PrincipalHome extends StatefulWidget {
   const PrincipalHome({super.key});
@@ -11,8 +12,11 @@ class PrincipalHome extends StatefulWidget {
 
 class _PrincipalHomeState extends State<PrincipalHome> {
   List<Widget> imageList = [
-    Image.asset('asset/images/aissms-ioit-logo (1).png'),
-    Image.asset('asset/images/Logo.jpg'),
+    Image.asset('asset/coursel/c1.jpeg'),
+    Image.asset('asset/coursel/c2.jpeg'),
+    Image.asset('asset/coursel/c3.jpeg'),
+    Image.asset('asset/coursel/c4.jpeg'),
+    Image.asset('asset/coursel/c5.png'),
 
     // Add more images or widgets as needed.
   ];
@@ -39,6 +43,8 @@ class _PrincipalHomeState extends State<PrincipalHome> {
             leading: const Icon(Icons.person),
             title: const Text('Departments'),
             onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Departments()));
               // Implement the action for the Profile Page button here
             },
           ),
@@ -108,12 +114,7 @@ class _PrincipalHomeState extends State<PrincipalHome> {
               height: 270,
               width: MediaQuery.of(context).size.width * 0.97,
               decoration: BoxDecoration(
-                  image: const DecorationImage(
-                    image: AssetImage(
-                        'asset/images/background21.jpg'), // Replace 'background_image.jpg' with the actual image path in your assets.
-                    fit: BoxFit
-                        .cover, // Adjust the fit type according to your requirement.
-                  ),
+                  color: Color.fromARGB(255, 35, 73, 132),
                   borderRadius: BorderRadius.circular(15)),
               child: Column(
                 children: [
