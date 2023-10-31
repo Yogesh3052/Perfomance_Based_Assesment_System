@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:pba/Splash_screen.dart';
 import 'package:pba/dept.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:pba/pages/homePage.dart';
+import 'firebase_options.dart';
 
-
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -23,7 +29,7 @@ class MyApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         routes: {
-          '/': (context) =>Departments(),
+          '/': (context) => MyHomePage(),
         });
   }
 }
