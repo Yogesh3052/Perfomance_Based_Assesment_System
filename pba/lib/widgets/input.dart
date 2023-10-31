@@ -6,6 +6,7 @@ class Inputfield extends StatefulWidget {
   final TextEditingController controller;
   final String labelText;
   final bool obscureText;
+  final bool? enabled;
   final String? Function(String?)? validator;
   final IconData? prefixIcon;
 
@@ -17,7 +18,7 @@ class Inputfield extends StatefulWidget {
     this.obscureText = false,
     this.validator,
     this.prefixIcon,
-    
+    this.enabled,
   }) : super(key: key);
 
   String? defaultValidator(String? value) {
@@ -76,6 +77,7 @@ class _InputfieldState extends State<Inputfield> {
           borderRadius: BorderRadius.circular(10),
         ),
         errorText: errorMessage,
+        enabled: widget.enabled != null ? false : true,
         prefixIcon: widget.prefixIcon != null
             ? Icon(widget.prefixIcon)
             : null, // Display the icon if provided

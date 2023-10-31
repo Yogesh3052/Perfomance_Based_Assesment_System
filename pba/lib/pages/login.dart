@@ -23,13 +23,17 @@ class _LoginPageState extends State<LoginPage> {
 
   void login(String uid, String pass) {
     String pwd =
-        user.userData.containsKey(uid) ? user.userData[uid]![0] : "None";
-    String role = pwd == pass ? user.userData[uid]![1] : "None";
+        user.userCreds.containsKey(uid) ? user.userCreds[uid]![0] : "None";
+    String role = pwd == pass ? user.userCreds[uid]![1] : "None";
     if (role != "None") {
+      user.mydata["Name"] = user.userData[uid]["Name"];
+      user.mydata["Email"] = uid;
+      user.mydata["Role"] = role;
+
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(
-            builder: (context) => role == "principal"
+            builder: (context) => role == "Principal"
                 ? MyHomePage(
                     role: '$role',
                   )
@@ -180,7 +184,7 @@ class _LoginPageState extends State<LoginPage> {
                             child: ElevatedButton(
                               onPressed: () {
                                 print("Login button pressed");
-                                if (user.userData.containsKey(
+                                if (user.userCreds.containsKey(
                                         _userIdController.text.trim()) ==
                                     true) {
                                   login(_userIdController.text.trim(),
