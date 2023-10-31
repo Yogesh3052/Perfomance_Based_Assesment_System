@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         routes: {
-          '/': (context) => applicationPage(),
+          '/': (context) => MyHomePage(role: 'Faculty'),
         });
   }
 }

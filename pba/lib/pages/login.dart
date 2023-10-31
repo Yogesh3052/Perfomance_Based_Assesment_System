@@ -72,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: <Widget>[
                     Image(
                       image:
-                          AssetImage('asset/images/aissms-ioit-logo (1).png'),
+                          AssetImage('asset/images/hlogo.png'),
                     ),
                     Text(
                       "Login",

@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       ),
       home: AnimatedSplashScreen(
         splash: 'asset/images/Logo.jpg',
-        
+
         nextScreen: LoginPage(),
         splashTransition: SplashTransition.scaleTransition,
         backgroundColor: Colors.white,
