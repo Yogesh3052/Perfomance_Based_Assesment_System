@@ -27,7 +27,7 @@ class _PrincipalHomeState extends State<PrincipalHome> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Welcome to Principal Home'),
-        backgroundColor: Color.fromARGB(255, 28, 176, 221),
+        backgroundColor: Color.fromARGB(255, 230, 53, 56),
       ),
       drawer: Drawer(
           child: Column(
@@ -40,7 +40,7 @@ class _PrincipalHomeState extends State<PrincipalHome> {
             ),
           ),
           ListTile(
-            leading: const Icon(Icons.person),
+            leading: const Icon(Icons.note_add_sharp),
             title: const Text('Departments'),
             onTap: () {
               Navigator.push(context,
@@ -119,7 +119,7 @@ class _PrincipalHomeState extends State<PrincipalHome> {
           const SizedBox(height: 20),
           Center(
             child: Container(
-              height: 270,
+              height: 260,
               width: MediaQuery.of(context).size.width * 0.97,
               decoration: BoxDecoration(
                   color: Color.fromARGB(255, 35, 73, 132),
@@ -134,6 +134,7 @@ class _PrincipalHomeState extends State<PrincipalHome> {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
                   CarouselSlider(
@@ -154,6 +155,38 @@ class _PrincipalHomeState extends State<PrincipalHome> {
           const SizedBox(
             height: 20,
           ),
+          Center(
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.97,
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 30),
+              decoration: BoxDecoration(
+                image: const DecorationImage(
+                  image: AssetImage(
+                      'asset/images/bluebackground.jpg'), // Replace with your image path.
+                  fit: BoxFit
+                      .cover, // Adjust the fit type according to your requirement.
+                ),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: GestureDetector(
+                onTap: () {
+                  // Add the function to be executed when the container is tapped.
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Departments()));
+                },
+                child: Center(
+                  child: Text(
+                    'View Department',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white, // Text color
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          )
         ]),
       ),
     );
