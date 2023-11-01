@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pba/backend/users.dart';
 import 'package:pba/pages/forgotPassword.dart';
 import 'package:pba/pages/homePage.dart';
+import 'package:pba/pages/principalHome.dart';
 import 'package:pba/widgets/input.dart';
 import 'package:pba/widgets/popUp.dart';
 
@@ -29,17 +30,16 @@ class _LoginPageState extends State<LoginPage> {
       user.mydata["Name"] = user.userData[uid]["Name"];
       user.mydata["Email"] = uid;
       user.mydata["Role"] = role;
+      user.mydata["Department"] = user.userData[uid]["Department"];
 
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(
-            builder: (context) => role == "Principal"
+            builder: (context) => role != "Principal"
                 ? MyHomePage(
                     role: '$role',
                   )
-                : MyHomePage(
-                    role: '$role',
-                  )), // second one for hod and faculty
+                : PrincipalHome()), // second one for hod and faculty
         (Route<dynamic> route) => false, // Remove all previous routes
       );
     }
@@ -71,8 +71,7 @@ class _LoginPageState extends State<LoginPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Image(
-                      image:
-                          AssetImage('asset/images/hlogo.png'),
+                      image: AssetImage('asset/images/hlogo.png'),
                     ),
                     Text(
                       "Login",

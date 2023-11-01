@@ -108,36 +108,6 @@ class _applicationPageState extends State<applicationPage> {
               SizedBox(
                 height: 8,
               ),
-              Row(
-                children: [
-                  Text(
-                    'HOD:',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              Inputfield(
-                  hintText: "Enter API Score",
-                  labelText: "API Score",
-                  controller: apihodcontroller),
-              SizedBox(
-                height: 8,
-              ),
-              Row(
-                children: [
-                  Text(
-                    'Principal:',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              Inputfield(
-                  hintText: "Enter API Score",
-                  labelText: "API Score",
-                  controller: apiprincipalcontroller),
-              SizedBox(
-                height: 8,
-              ),
               ElevatedButton(
                   onPressed: () {
                     Map<String, dynamic> application = {
@@ -145,7 +115,9 @@ class _applicationPageState extends State<applicationPage> {
                       "Semester": semestercontroller.text.trim(),
                       "Classes": totalClassesController.text.trim(),
                       "ActualClasses": subjectController.text.trim(),
-                      "FacultyApi": apifacultycontroller.text.trim()
+                      "FacultyApi": apifacultycontroller.text.trim(),
+                      "HodApi": "None",
+                      "PrincipalApi": "None"
                     };
                     _sendDataToFirestore(application);
                   },

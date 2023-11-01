@@ -62,3 +62,5 @@ Future<void> updateDataInFirestore(BuildContext context, String collectionName,
     Utils.toastMessage('Failed to update data');
   }
 }
+
+

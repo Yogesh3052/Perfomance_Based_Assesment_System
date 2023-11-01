@@ -6,7 +6,7 @@ class user {
   };
   static Map<String, dynamic> userData = {
     "faculty@gmail.com": {
-      "Name": "Mrs. Navale",
+      "Name": "Mrs. Navale Girish",
       "Email": "faculty@gmail.com",
       "Department": "Computer"
     },
@@ -24,6 +24,7 @@ class user {
   static Map<String, dynamic> mydata = {
     "Name": "None",
     "Email": "None",
-    "Role": "None"
+    "Role": "None",
+    "Department": "None"
   };
 }

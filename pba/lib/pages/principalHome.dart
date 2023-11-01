@@ -51,7 +51,15 @@ class _PrincipalHomeState extends State<PrincipalHome> {
           ListTile(
             leading: const Icon(Icons.logout),
             title: const Text('Log Out'),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        PrincipalHome()), // second one for hod and faculty
+                (Route<dynamic> route) => false, // Remove all previous routes
+              );
+            },
           ),
         ],
       )),

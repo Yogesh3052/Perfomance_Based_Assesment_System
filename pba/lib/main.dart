@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         routes: {
-          '/': (context) => MyHomePage(role: 'Faculty'),
+          '/': (context) => splash_screen(),
         });
   }
 }

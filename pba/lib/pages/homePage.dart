@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:pba/pages/application.dart';
 import 'package:pba/pages/login.dart';
+import 'package:pba/backend/users.dart';
+import 'package:pba/pages/reviewPage.dart';
 
 class MyHomePage extends StatefulWidget {
   final String role;
@@ -20,8 +23,8 @@ class _MyHomePageState extends State<MyHomePage> {
     // Add more images or widgets as needed.
   ];
   final List<Widget> containerRoutes = [
-    FirstPage(),
-    SecondPage(),
+    applicationPage(),
+    reviewPage(userid: user.mydata["Email"]),
   ];
   final List<String> titles = [
     'Create New Application',
@@ -39,8 +42,8 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
         children: [
           UserAccountsDrawerHeader(
-            accountName: Text("Navale Girish"),
-            accountEmail: const Text('Assistant Professor,\nAISSMS IOIT, PUNE'),
+            accountName: Text("${user.mydata["Name"]}"),
+            accountEmail: Text('${user.mydata["Role"]},\nAISSMS IOIT, PUNE'),
             currentAccountPicture: CircleAvatar(
               backgroundImage: AssetImage('asset/images/Navale.jpg'),
             ),
@@ -49,6 +52,12 @@ class _MyHomePageState extends State<MyHomePage> {
             leading: const Icon(Icons.person),
             title: const Text('Create Applications'),
             onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => applicationPage(),
+                ),
+              );
               // Implement the action for the Profile Page button here
             },
           ),
@@ -56,13 +65,30 @@ class _MyHomePageState extends State<MyHomePage> {
             leading: const Icon(Icons.person),
             title: const Text('View Applications'),
             onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => reviewPage(
+                      userid: user.mydata["Role"] == "Hod"
+                          ? 'hod@gmail.com'
+                          : "faculty@gmail.com"),
+                ),
+              );
               // Implement the action for the Profile Page button here
             },
           ),
           ListTile(
             leading: const Icon(Icons.logout),
             title: const Text('Log Out'),
-            onTap: () {},
+            onTap: () {
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        LoginPage()), // second one for hod and faculty
+                (Route<dynamic> route) => false, // Remove all previous routes
+              );
+            },
           ),
         ],
       )),
@@ -103,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Navale Girish',
+                          '${user.mydata["Name"]}',
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 24,
@@ -111,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                         ),
                         Text(
-                          'Assistant Professor,\nAISSMS IOIT, PUNE',
+                          '${user.mydata["Role"]},\nAISSMS IOIT, PUNE',
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 18,

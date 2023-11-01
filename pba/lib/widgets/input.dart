@@ -77,7 +77,7 @@ class _InputfieldState extends State<Inputfield> {
           borderRadius: BorderRadius.circular(10),
         ),
         errorText: errorMessage,
-        enabled: widget.enabled != null ? false : true,
+        enabled: widget.enabled ?? true,
         prefixIcon: widget.prefixIcon != null
             ? Icon(widget.prefixIcon)
             : null, // Display the icon if provided

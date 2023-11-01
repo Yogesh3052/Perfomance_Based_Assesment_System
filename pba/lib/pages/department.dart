@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pba/pages/reviewPage.dart';
 
 class Departments extends StatelessWidget {
   final List<String> titles = [
@@ -13,13 +14,13 @@ class Departments extends StatelessWidget {
 
   // Create a list of routes corresponding to each container
   final List<Widget> containerRoutes = [
-    ContainerPage(0),
-    ContainerPage(1),
-    ContainerPage(2),
-    ContainerPage(3),
-    ContainerPage(4),
-    ContainerPage(5),
-    ContainerPage(6),
+    reviewPage(userid: "faculty@gmail.com"),
+    reviewPage(userid: "faculty@gmail.com"),
+    reviewPage(userid: "faculty@gmail.com"),
+    reviewPage(userid: "faculty@gmail.com"),
+    reviewPage(userid: "faculty@gmail.com"),
+    reviewPage(userid: "faculty@gmail.com"),
+    reviewPage(userid: "faculty@gmail.com"),
   ];
 
   @override
@@ -88,27 +89,6 @@ class Departments extends StatelessWidget {
             ),
           );
         },
-      ),
-    );
-  }
-}
-
-class ContainerPage extends StatelessWidget {
-  final int index;
-
-  ContainerPage(this.index);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Container $index'),
-      ),
-      body: Center(
-        child: Text(
-          'This is Container $index',
-          style: TextStyle(fontSize: 24.0),
-        ),
       ),
     );
   }
